@@ -1,4 +1,6 @@
+import { Http} from '@angular/http';
 import { HttpClient } from '@angular/common/http';
+
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -35,6 +37,42 @@ getAllUsers() {
   .map(response => response);
 
   
+}
+getUser(id): Observable<User> {
+  return this.http
+    .get<User>(this.baseUrl + 'users/' + id )
+    .map(response => <User>response)
+    .catch(this.handleError);
+}
+
+gettheUser(id): Observable<User> {
+  return this.http
+    .get(this.baseUrl + 'users/' + id )
+    .map(response => <User>response)
+    .catch(this.handleError);
+}
+
+
+updateUser(id: number, user: User) {
+  return this.http.put(this.baseUrl + 'users/' + id, user).catch(this.handleError);
+}
+private handleError(error: any) {
+  const applicationError = error.headers.get('Application-Error');
+  if (applicationError) {
+    return Observable.throw(applicationError);
+  }
+  const serverError = error.json();
+  let modelStateErrors = '';
+  if (serverError) {
+    for (const key in serverError) {
+      if (serverError[key]) {
+        modelStateErrors += serverError[key] + '\n';
+      }
+    }
+  }
+  return Observable.throw(
+    modelStateErrors || 'Server error'
+  );
 }
 
 
