@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Ionic!</h2>
+<ion-item>
+<ion-label floating>
+enter your name
+</ion-label>
+<ion-input type="text"[(ngModel)]="personName"></ion-input>
+
+</ion-item>
+<button ion-button block clear (click)="showGrettings(personName)">show greetings </button>
+<ion-item>
+
+  <memberlist></memberlist>
+
+</ion-item>
+
+</ion-content>

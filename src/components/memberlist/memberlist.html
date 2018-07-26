@@ -1,0 +1,21 @@
+<!-- Generated template for the MemberlistComponent component -->
+<div>
+  {{text}}
+
+  <ion-list>
+  
+    <button ion-item *ngFor="let theUser of user">
+      
+      <ion-avatar item-start>
+        <img src="{{theUser?.photoUrl}}"/>
+      </ion-avatar>
+      
+      <h2>{{theUser?.knownAs}}</h2>
+      
+      <p>{{theUser?.country}}</p>
+      
+    </button>
+    
+  </ion-list>
+  
+</div>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About us
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+  
+    <ion-item>
+      <ion-label>
+        your weight
+      </ion-label>
+      <ion-input type="number" [(ngModel)]="weight"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label>
+            your height
+          </ion-label>
+          <ion-input type="number" [(ngModel)]="height"></ion-input>
+     </ion-item>
+
+  
+      <button ion-button icon-start clear item-end (click)="getResult()">
+        <ion-icon name="navigate" ></ion-icon>
+        calculate 
+      </button>
+
+      <p>{{result}}</p>
+  
+  </ion-card>
+</ion-content>
